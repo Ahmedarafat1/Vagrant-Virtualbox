@@ -48,6 +48,7 @@ Vagrant.configure("2") do |config|
 
   #   # Customize the amount of memory on the VM:
      vb.memory = "2024"
+     vb.cpus = 2 
   end
   #
   # View the documentation for the provider you are using for more
@@ -58,9 +59,6 @@ Vagrant.configure("2") do |config|
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
      apt-get update
-     echo "-----------------------"
-     echo "-----------------------"
-     echo "-----------------------"
      echo "-----------------------"
    SHELL
 

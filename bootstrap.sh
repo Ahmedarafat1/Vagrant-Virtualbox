@@ -20,7 +20,7 @@ cd docker-nginx-sandbox
 # build the docker immage named testnginx
 sudo docker build -t testnginx .
 
-#run docker 
+# run docker 
 sudo docker run -d -p 80:80 testnginx
 
 
