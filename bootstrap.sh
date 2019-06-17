@@ -8,7 +8,6 @@ sudo apt-get install -y docker-ce
 
 # Allow vagant user to run docker
 sudo usermod -a -G docker vagrant
-sudo apt-get install -y docker-ce=18.06.1~ce~3-0~ubuntu
 
 
 # install git 
