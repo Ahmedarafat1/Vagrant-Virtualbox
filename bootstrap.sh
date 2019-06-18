@@ -23,4 +23,23 @@ sudo docker build -t testnginx .
 # run docker 
 sudo docker run -d -p 80:80 testnginx
 
+# -----------
 
+TERRAFORM_VERSION="0.11.7"
+
+# install pip
+sudo wget -q https://bootstrap.pypa.io/get-pip.py
+sudo python get-pip.py
+sudo python3 get-pip.py
+
+# install awscli
+sudo pip install -U awscli
+
+# install gip
+sudo apt-get -y install gzip unzip
+
+# install terraform
+
+sudo wget -q https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip
+sudo unzip -o terraform_${TERRAFORM_VERSION}_linux_amd64.zip -d /usr/local/bin
+sudo rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip
