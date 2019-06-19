@@ -1,53 +1,48 @@
 Vagrant.configure("2") do |config|
-  config.vm.define "web01", primary: true do |web01|
-    web01.vm.box = "ubuntu/trusty64"
-    web01.vm.hostname = 'web01'
-#    web01.vm.box_url = "ubuntu/trusty64"
+  config.vm.define "devopsweb1", primary: true do |devopsweb1|
+    devopsweb1.vm.box = "ubuntu/trusty64"
+    devopsweb1.vm.hostname = 'devopsweb1'
 
-#    web01.vm.network :private_network, ip: "192.168.56.101"
-    web01.vm.network :forwarded_port, guest: 22, host: 10122, id: "ssh"
+#   devopsweb1.vm.network :private_network, ip: "192.168.56.101"
+    devopsweb1.vm.network :forwarded_port, guest: 22, host: 10122, id: "ssh"
 
 
-    web01.vm.provider :virtualbox do |v|
+    devopsweb1.vm.provider :virtualbox do |v|
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       v.customize ["modifyvm", :id, "--memory", 512]
-      v.customize ["modifyvm", :id, "--name", "web01"]
+      v.customize ["modifyvm", :id, "--name", "devopsweb1"]
     end
   end
 
 #--------------------------------------
 
-  config.vm.define "web02", autostart: false do |web02|
-#    web02.vm.box = "precise64"
-    web02.vm.box = "ubuntu/trusty64"
-    web02.vm.hostname = 'web02'
- #   web02.vm.box_url = "ubuntu/trusty64"
+  config.vm.define "devopsweb2", autostart: false do |devopsweb2|
+    devopsweb2.vm.box = "ubuntu/trusty64"
+    devopsweb2.vm.hostname = 'devopsweb2'
 
- #   web02.vm.network :private_network, ip: "192.168.56.103"
-    web02.vm.network :forwarded_port, guest: 22, host: 10122, id: "ssh"
+ #   devopsweb2.vm.network :private_network, ip: "192.168.56.103"
+    devopsweb2.vm.network :forwarded_port, guest: 22, host: 10122, id: "ssh"
 
-    web02.vm.provider :virtualbox do |v|
+    devopsweb2.vm.provider :virtualbox do |v|
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       v.customize ["modifyvm", :id, "--memory", 512]
-      v.customize ["modifyvm", :id, "--name", "web02"]
+      v.customize ["modifyvm", :id, "--name", "devopsweb2"]
     end
   end
 
 #--------------------------------------
 
-  config.vm.define "db" do |db|
-#    db.vm.box = "precise64"
-    db.vm.box = "ubuntu/trusty64"
-    db.vm.hostname = 'db'
- #   db.vm.box_url = "ubuntu/precise64"
+  config.vm.define "devops" do |devopsdb|
+    devopsdb.vm.box = "ubuntu/trusty64"
+    devopsdb.vm.hostname = 'devopsdb'
 
-#    db.vm.network :private_network, ip: "192.168.56.102"
-    db.vm.network :forwarded_port, guest: 22, host: 10222, id: "ssh"
+#    devopsdb.vm.network :private_network, ip: "192.168.56.102"
+    devopsdb.vm.network :forwarded_port, guest: 22, host: 10222, id: "ssh"
 
-    db.vm.provider :virtualbox do |v|
+    devopsdb.vm.provider :virtualbox do |v|
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       v.customize ["modifyvm", :id, "--memory", 512]
-      v.customize ["modifyvm", :id, "--name", "db"]
+      v.customize ["modifyvm", :id, "--name", "devopsdb"]
     end
   end
 
