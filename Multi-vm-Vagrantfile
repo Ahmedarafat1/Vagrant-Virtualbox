@@ -32,7 +32,7 @@ Vagrant.configure("2") do |config|
 
 #--------------------------------------
 
-  config.vm.define "devops" do |devopsdb|
+  config.vm.define "devopsdb" do |devopsdb|
     devopsdb.vm.box = "ubuntu/trusty64"
     devopsdb.vm.hostname = 'devopsdb'
 
