@@ -1,0 +1,7 @@
+#!/bin/bash
+sudo apt-get update
+sudo add-apt-repository -y ppa:webupd8team/java
+sudo apt-get update
+sudo apt install -y oracle-java9-installer
+sudo apt install -y oracle-java9-set-default
+
